@@ -1,0 +1,2 @@
+-keep class com.sovegetables.dns.** {*;}
+-libraryjars ./libs/HTTPDNS_ANDROID_SDK_V3.2.5_G74.aar

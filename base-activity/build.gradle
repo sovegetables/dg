@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        qa{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    flavorDimensions "version"
+        libraryVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "${project.name}-V${android.defaultConfig.versionName}_${android.defaultConfig.versionCode}--${rootProject.ext.package_time}.aar"
+                println("outputFileName:" + outputFileName)
+            }
+        }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies_androidx["appcompat"]
+    implementation rootProject.ext.dependencies_common["kotlin"]
+    implementation rootProject.ext.dependencies_androidx["core-ktx"]
+    implementation rootProject.ext.dependencies_sovegetables["systembarhelper"]
+    implementation rootProject.ext.dependencies_sovegetables["circleloadingview"]
+    implementation rootProject.ext.dependencies_sovegetables["gsonhelper"]
+    implementation rootProject.ext.dependencies_sovegetables["absactivity"]
+    implementation rootProject.ext.dependencies_sovegetables["topnavbar"]
+    implementation rootProject.ext.dependencies_sovegetables["logger"]
+    implementation rootProject.ext.dependencies_common["rxkotlin"]
+    implementation rootProject.ext.dependencies_common["rxandroid"]
+    implementation rootProject.ext.dependencies_common["rxjava"]
+    implementation rootProject.ext.dependencies_androidx["constraintlayout"]
+    implementation rootProject.ext.dependencies_common["qmui"]
+
+    implementation rootProject.ext.dependencies_common["glide"]
+    kapt rootProject.ext.dependencies_compiler['glide']
+    implementation project(':imageloader')
+}

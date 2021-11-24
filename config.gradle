@@ -1,0 +1,23 @@
+def hasEnv = hasProperty("env")
+def env = hasEnv? getProperty("env").toString() : "qa"
+def versionFile = project.rootProject.file("${env}-version.properties")
+def properties = new Properties()
+def inputStreamReader = new InputStreamReader(new FileInputStream(versionFile), "utf-8")
+properties.load(inputStreamReader)
+ext.env_name = env
+ext.application_id = properties.getProperty("application_id")
+ext.app_name = properties.getProperty("app_name")
+ext.version_code = properties.getProperty("version_code")
+ext.version_name = properties.getProperty("version_name")
+ext.package_time = new Date().format("yyyyMMdd-HHmm")
+def tempFile = new File(env + "-config.properties")
+if(!tempFile.exists()){
+    tempFile.createNewFile()
+}
+def outputStream = new OutputStreamWriter(new FileOutputStream(tempFile), "utf-8")
+def appendProperties = new Properties()
+appendProperties.put("package_time", ext.package_time)
+appendProperties.put("version_code", ext.version_code)
+appendProperties.put("version_name", ext.version_name)
+appendProperties.store(outputStream, "")
+outputStream.close()

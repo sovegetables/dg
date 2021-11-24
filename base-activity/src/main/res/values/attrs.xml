@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EmptyOrErrorView">
+        <attr format="boolean" name="dougong_show_loading"/>
+        <attr format="string" name="dougong_title_text"/>
+        <attr format="string" name="dougong_detail_text"/>
+        <attr format="string" name="dougong_btn_text"/>
+    </declare-styleable>
+</resources>

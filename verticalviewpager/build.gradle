@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+dependencies {
+    compileOnly rootProject.ext.dependencies_androidx["legacy-support-v4"]
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionName "1.0"
+        versionCode 1
+    }
+
+    buildTypes {
+        release {
+        }
+        qa {
+        }
+    }
+}
