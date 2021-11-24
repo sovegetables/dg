@@ -15,4 +15,5 @@ include ':verticalviewpager'
 include ':libspeechsdk'
 include ':circleprogressview'
 include ':okhttp-dns'
+include ':player'
 
