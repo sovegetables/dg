@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+    <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下载中..."
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            />
+
+    <ProgressBar
+            android:id="@+id/pb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/big_h_progressbar"
+            android:layout_margin="18dp"
+            android:progress="10"
+            tools:visibility="visible"
+            />
+
+    <TextView
+            android:id="@+id/tv_loading_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下载失败请点击重试"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            tools:visibility="visible"
+            android:visibility="gone"
+            />
+
+    <TextView
+            android:id="@+id/tv_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pdf_shape_bg_big_btn"
+            android:text="重新下载"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="50dp"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:paddingRight="50dp"
+            android:layout_gravity="center_horizontal"
+            tools:visibility="visible"
+            android:visibility="gone"
+            />
+
+</LinearLayout>

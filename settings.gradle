@@ -16,4 +16,5 @@ include ':libspeechsdk'
 include ':circleprogressview'
 include ':okhttp-dns'
 include ':player'
+include ':widget'
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SelectedImageButton">
+        <attr name="selected_src" format="reference" />
+        <attr name="un_selected_src" format="reference" />
+    </declare-styleable>
+</resources>
