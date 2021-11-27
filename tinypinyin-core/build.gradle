@@ -13,6 +13,7 @@ buildscript {
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+        maven { url "https://jitpack.io" }
     }
 
     dependencies {
@@ -48,14 +49,7 @@ dependencies {
     jmh 'org.openjdk.jmh:jmh-core:0.9'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
 }
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
