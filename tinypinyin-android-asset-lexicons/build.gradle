@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+    }
+
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            systemProperty 'robolectric.dependency.repo.url', 'https://repo1.maven.org/maven2'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':tinypinyin-core')
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+
+
+

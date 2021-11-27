@@ -17,4 +17,8 @@ include ':circleprogressview'
 include ':okhttp-dns'
 include ':player'
 include ':widget'
+include ':tinypinyin-android-asset-lexicons'
+include ':tinypinyin-lexicons-android-cncity'
+include ':tinypinyin-lexicons-java-cncity'
+include ':tinypinyin-core'
 
