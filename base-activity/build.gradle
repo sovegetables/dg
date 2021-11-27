@@ -35,13 +35,13 @@ android {
         jvmTarget = '1.8'
     }
 
-    flavorDimensions "version"
-        libraryVariants.all { variant ->
-            variant.outputs.all {
-                outputFileName = "${project.name}-V${android.defaultConfig.versionName}_${android.defaultConfig.versionCode}--${rootProject.ext.package_time}.aar"
-                println("outputFileName:" + outputFileName)
-            }
-        }
+//    flavorDimensions "version"
+//        libraryVariants.all { variant ->
+//            variant.outputs.all {
+//                outputFileName = "${project.name}-V${android.defaultConfig.versionName}_${android.defaultConfig.versionCode}--${rootProject.ext.package_time}.aar"
+//                println("outputFileName:" + outputFileName)
+//            }
+//        }
 }
 
 dependencies {
