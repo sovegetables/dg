@@ -126,10 +126,10 @@ class AppGuideLineHelper private constructor(){
                             counter ++
                             AppLogger.i(TAG, "show: $showed counter:$counter")
                             if(!guileManager.isShow() && !showed && counter <= 2){
-                                Handler().postDelayed(idleRunnable, 200)
+                                Handler().postDelayed(idleRunnable!!, 200)
                             }
                         }
-                        Handler().postDelayed(idleRunnable, 200)
+                        Handler().postDelayed(idleRunnable!!, 200)
                     }
                     anchorView?.get()?.viewTreeObserver?.removeOnPreDrawListener(this)
                     return true
