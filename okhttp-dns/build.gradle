@@ -38,7 +38,9 @@ android {
 }
 
 dependencies {
-    api files("libs/HTTPDNS_ANDROID_SDK_V3.2.5_G74.aar")
+    compileOnly files('libs/HTTPDNS_ANDROID_SDK_V3.2.5_G74.aar')
+//    api files("libs/HTTPDNS_ANDROID_SDK_V3.2.5_G74.aar")
+//    api fileTree(dir: 'libs', include: ['*.aar'])
     compileOnly rootProject.ext.dependencies_common["okhttp3_okhttp"]
     compileOnly project(":logger")
     testImplementation rootProject.ext.dependencies_test["junit"]

@@ -41,7 +41,7 @@ public class EmptyOrErrorView extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.app_empty_view, this, true);
-        mLoadingView = (QMUILoadingView)findViewById(R.id.empty_view_loading);
+        mLoadingView = findViewById(R.id.empty_view_loading);
         mTitleTextView = (TextView)findViewById(R.id.empty_view_title);
         mDetailTextView = (TextView)findViewById(R.id.empty_view_detail);
         mIvEmptyView = (ImageView) findViewById(R.id.iv_empty);

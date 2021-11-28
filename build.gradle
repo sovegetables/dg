@@ -29,10 +29,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.didichuxing.doraemonkit:dokitx-plugin:3.3.5'
-        classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.2.14.5"
-        classpath 'com.huawei.agconnect:agcp:1.4.1.300'
-        classpath 'org.apache.ant:ant:1.9.7'
     }
 }
 
@@ -57,9 +53,6 @@ allprojects {
         maven {
             url 'https://developer.huawei.com/repo/'
         }
-        flatDir {
-            dirs 'libs'
-        }
         google()
         mavenCentral()
     }
@@ -71,16 +64,3 @@ task clean(type: Delete) {
 
 apply from: "./config.gradle"
 apply from: "./dependencies.gradle"
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-//                from components.release
-                groupId = 'com.github.sovegetables'
-                artifactId = 'dg'
-                version = '0.4.2'
-            }
-        }
-    }
-}

@@ -126,16 +126,16 @@ ext {
 
     dependencies_sovegetables = [
             "circleloadingview"          : "com.github.sovegetables:circleloadingview:0.1.0",
-            "gsonhelper"                 : "com.github.sovegetables.shineandroid:gsonhelper:0.3.7",
+            "gsonhelper"                 : "com.github.sovegetables.shineandroid:gsonhelper:0.4.3",
             "systembarhelper"            : "com.github.sovegetables:systembarhelper:0.1.7",
-            "absactivity"                : "com.github.sovegetables.shineandroid:absactivity:0.3.8",
-            "topnavbar"                  : "com.github.sovegetables.shineandroid:topnavbar:0.3.7",
-            "logger"                     : "com.github.sovegetables.shineandroid:logger:0.3.7",
+            "absactivity"                : "com.github.sovegetables.shineandroid:absactivity:0.4.3",
+            "topnavbar"                  : "com.github.sovegetables.shineandroid:topnavbar:0.4.3",
+            "logger"                     : "com.github.sovegetables.shineandroid:logger:0.4.3",
             "argonweb"                   : "com.github.sovegetables:argonweb:0.3.2",
             "qrcode_android"             : 'com.github.sovegetables:qrcode-android:0.4.0',
             "recyclerviewadapter_adapter": 'com.github.sovegetables.recyclerviewadapter:adapter:0.1.7',
-            "permission"                 : "com.github.sovegetables.shineandroid:permission:0.3.7",
-            "kotandroid"                 : "com.github.sovegetables.shineandroid:kotandroid:0.3.7",
+            "permission"                 : "com.github.sovegetables.shineandroid:permission:0.4.3",
+            "kotandroid"                 : "com.github.sovegetables.shineandroid:kotandroid:0.4.3",
             "progress_round_button"      : 'com.github.sovegetables:ProgressRoundButton:0.1.0',
     ]
 

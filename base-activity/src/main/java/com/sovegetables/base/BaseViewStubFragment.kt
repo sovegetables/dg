@@ -1,6 +1,5 @@
 package com.sovegetables.base
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewStub
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import com.sovegetables.topnavbar.TopBar
-import com.sovegetables.topnavbar.TopBarItem
 
 abstract class BaseViewStubFragment : com.sovegetables.base.BaseFragment() {
     private var mSavedInstanceState: Bundle? = null
@@ -110,7 +108,7 @@ abstract class BaseViewStubFragment : com.sovegetables.base.BaseFragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putBoolean(KEY_HAS_INFLATED, hasInflated)
+        outState.putBoolean(KEY_HAS_INFLATED, hasInflated)
     }
 
     protected fun hasInflated() : Boolean{
@@ -129,11 +127,9 @@ abstract class BaseViewStubFragment : com.sovegetables.base.BaseFragment() {
     }
 
     open fun onPageFragmentSelected(){
-
     }
 
     open fun onPageFragmentReleased(){
-
     }
 
     open fun getPageTitle(): CharSequence?{

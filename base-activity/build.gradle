@@ -16,6 +16,10 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,17 +29,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    buildFeatures {
-        viewBinding true
     }
 }
 
@@ -57,6 +50,6 @@ dependencies {
 
     implementation rootProject.ext.dependencies_common["glide"]
     kapt rootProject.ext.dependencies_compiler['glide']
-    implementation project(':imageloader')
+    implementation 'com.github.sovegetables.dg:imageloader:0.1.0'
 }
 
