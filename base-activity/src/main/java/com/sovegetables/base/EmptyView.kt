@@ -5,9 +5,11 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import kotlinx.android.synthetic.main.view_empty.view.*
+import com.sovegetables.base.databinding.ViewEmptyBinding
 
 class EmptyView : ConstraintLayout {
+
+    private lateinit var emptyBinding: ViewEmptyBinding
 
     constructor(context: Context) : super(context) {
         init(context)
@@ -21,63 +23,63 @@ class EmptyView : ConstraintLayout {
         init(context)
     }
 
-    fun init(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.view_empty, this, true)
+    private fun init(context: Context) {
+        emptyBinding = ViewEmptyBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     fun setImage(res: Int) {
-        ivIcon.setImageResource(res)
+        emptyBinding.ivIcon.setImageResource(res)
     }
 
     fun setTitle(title: String) {
-        tvTitle.text = title
+        emptyBinding.tvTitle.text = title
     }
 
     fun setTips(text: String) {
-        tvTips.text = text
+        emptyBinding.tvTips.text = text
     }
 
     fun setButton(text: String, listener: View.OnClickListener) {
-        btnSubmit.text = text
-        btnSubmit.setOnClickListener(listener)
+        emptyBinding.btnSubmit.text = text
+        emptyBinding.btnSubmit.setOnClickListener(listener)
     }
 
     fun showNetworkError(listener: View.OnClickListener) {
         visibility = View.VISIBLE
-        ivIcon.visibility = View.GONE
-        tvTitle.text = "没有数据"
-        tvTips.text = "请检查网络是否正常"
-        btnSubmit.text = "重新加载"
-        btnSubmit.setOnClickListener(listener)
+        emptyBinding.ivIcon.visibility = View.GONE
+        emptyBinding.tvTitle.text = "没有数据"
+        emptyBinding.tvTips.text = "请检查网络是否正常"
+        emptyBinding.btnSubmit.text = "重新加载"
+        emptyBinding.btnSubmit.setOnClickListener(listener)
     }
 
     fun showNetworkError(res: Int, listener: View.OnClickListener) {
         visibility = View.VISIBLE
-        ivIcon.setImageResource(res)
-        ivIcon.visibility = View.GONE
-        tvTitle.text = "没有数据"
-        tvTips.text = "请检查网络是否正常"
-        btnSubmit.text = "重新加载"
-        btnSubmit.setOnClickListener(listener)
+        emptyBinding.ivIcon.setImageResource(res)
+        emptyBinding.ivIcon.visibility = View.GONE
+        emptyBinding.tvTitle.text = "没有数据"
+        emptyBinding.tvTips.text = "请检查网络是否正常"
+        emptyBinding.btnSubmit.text = "重新加载"
+        emptyBinding.btnSubmit.setOnClickListener(listener)
     }
 
     fun showEmptyView(res: Int, text: String){
         visibility = View.VISIBLE
-        ivIcon.setImageResource(res)
-        ivIcon.visibility = View.GONE
-        tvTitle.text = text
-        tvTips.visibility = View.GONE
-        btnSubmit.visibility = View.GONE
+        emptyBinding.ivIcon.setImageResource(res)
+        emptyBinding.ivIcon.visibility = View.GONE
+        emptyBinding.tvTitle.text = text
+        emptyBinding.tvTips.visibility = View.GONE
+        emptyBinding.btnSubmit.visibility = View.GONE
     }
 
     fun showLogin(res: Int, listener: View.OnClickListener) {
         visibility = View.VISIBLE
-        tvTitle.visibility = View.VISIBLE
-        ivIcon.setImageResource(res)
-        ivIcon.visibility = View.GONE
-        tvTitle.text = "你还没有登录"
-        tvTips.visibility = View.GONE
-        btnSubmit.text = "去登录"
-        btnSubmit.setOnClickListener(listener)
+        emptyBinding.tvTitle.visibility = View.VISIBLE
+        emptyBinding.ivIcon.setImageResource(res)
+        emptyBinding.ivIcon.visibility = View.GONE
+        emptyBinding.tvTitle.text = "你还没有登录"
+        emptyBinding.tvTips.visibility = View.GONE
+        emptyBinding.btnSubmit.text = "去登录"
+        emptyBinding.btnSubmit.setOnClickListener(listener)
     }
 }
