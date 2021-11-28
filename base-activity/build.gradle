@@ -59,3 +59,4 @@ dependencies {
     kapt rootProject.ext.dependencies_compiler['glide']
     implementation project(':imageloader')
 }
+
