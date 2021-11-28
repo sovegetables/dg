@@ -1,5 +1,6 @@
 package com.sovegetables.base;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
@@ -69,6 +70,7 @@ public class BaseActivity extends com.sovegetables.BaseActivity {
         }
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onDestroy() {
         dismissProgressDialog();
@@ -85,6 +87,7 @@ public class BaseActivity extends com.sovegetables.BaseActivity {
         disposableList.add(disposable);
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -100,12 +103,14 @@ public class BaseActivity extends com.sovegetables.BaseActivity {
         return res;
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
         activityRootViewGroup = findViewById(R.id.rl_activity_container);
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
 //        super.onSaveInstanceState(outState);

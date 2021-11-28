@@ -1,8 +1,8 @@
 ext {
     minSdkVersion = 21
     targetSdkVersion = 28
-    compileSdkVersion = 29
-    buildToolsVersion = '28.0.3'
+    compileSdkVersion = 30
+    buildToolsVersion = '31.0.0'
 
     versions = [
             "android_support_version": "1.1.0",
@@ -107,9 +107,7 @@ ext {
             "shadow_layout"                      : 'com.lijiankun24:shadowlayout:1.1.0',
             "vlayout"                            : 'com.alibaba.android:vlayout:1.2.8@aar',
             "tiny_pinyin"                        : 'com.github.promeg:tinypinyin:2.0.3',
-//            "tiny_pinyin"                        : 'com.github.Albert-L:TinyPinyin:v2.0.3',
             "tiny_pinyin_lexicons_android_cncity": 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3',
-//            "tiny_pinyin_lexicons_android_cncity": 'com.github.Albert-L.TinyPinyin:tinypinyin-lexicons-android-cncity:2.0.3',
             "auto_scroll_textview"               : 'com.github.ronghao:AutoScrollTextView:1.0.3',
             "tinkerpatch_android_sdk"            : "com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.14.6",
             "custom_popwindow"                   : 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1',
