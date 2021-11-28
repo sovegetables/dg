@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.github.promeg.pinyinhelper">
+    <application android:label="tinypinyin">
+    </application>
+</manifest>
