@@ -1,5 +1,5 @@
-apply plugin: 'maven-publish'
-group = 'com.github.sovegetables'
+//apply plugin: 'maven-publish'
+//group = 'com.github.sovegetables'
 
 
 buildscript {
@@ -65,15 +65,13 @@ task clean(type: Delete) {
 apply from: "./config.gradle"
 apply from: "./dependencies.gradle"
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-//                from components.release
-                groupId = 'com.github.sovegetables'
-                artifactId = 'dg'
-                version = '0.5.5'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                groupId = 'com.github.sovegetables'
+//                artifactId = 'dg'
+//            }
+//        }
+//    }
+//}
