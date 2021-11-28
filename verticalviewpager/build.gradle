@@ -20,4 +20,9 @@ android {
         qa {
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
