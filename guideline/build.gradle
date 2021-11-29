@@ -51,15 +51,15 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies_android_test["espresso-core"]
 }
 
-apply plugin: 'maven-publish'
-group = 'com.github.sovegetables'
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.github.sovegetables.dg'
-                artifactId = 'guideline'
-            }
-        }
-    }
-}
+//apply plugin: 'maven-publish'
+//group = 'com.github.sovegetables'
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                groupId = 'com.github.sovegetables.dg'
+//                artifactId = 'guideline'
+//            }
+//        }
+//    }
+//}

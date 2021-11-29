@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'maven-publish'
-group = 'com.github.sovegetables'
+//apply plugin: 'maven-publish'
+//group = 'com.github.sovegetables'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -55,14 +55,14 @@ dependencies {
     implementation 'com.github.sovegetables.dg:imageloader:0.1.0'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.github.sovegetables.dg'
-                artifactId = 'base-activity'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                groupId = 'com.github.sovegetables.dg'
+//                artifactId = 'base-activity'
+//            }
+//        }
+//    }
+//}
 

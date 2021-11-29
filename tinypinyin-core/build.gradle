@@ -28,16 +28,16 @@ dependencies {
     implementation 'org.ahocorasick:ahocorasick:0.3.0'
 }
 
-apply plugin: 'maven-publish'
-group = 'com.github.sovegetables'
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.github.sovegetables.dg'
-                artifactId = 'tinypinyin-core'
-            }
-        }
-    }
-}
+//apply plugin: 'maven-publish'
+//group = 'com.github.sovegetables'
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                groupId = 'com.github.sovegetables.dg'
+//                artifactId = 'tinypinyin-core'
+//            }
+//        }
+//    }
+//}
 
