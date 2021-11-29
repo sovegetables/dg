@@ -41,15 +41,15 @@ dependencies {
     implementation project(':utils')
 }
 
-//apply plugin: 'maven-publish'
-//group = 'com.github.sovegetables'
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                groupId = 'com.github.sovegetables.dg'
-//                artifactId = 'kotlin-extension'
-//            }
-//        }
-//    }
-//}
+apply plugin: 'maven-publish'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'kotlin-extension'
+            }
+        }
+    }
+}

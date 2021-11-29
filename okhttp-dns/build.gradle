@@ -44,15 +44,15 @@ dependencies {
     testImplementation rootProject.ext.dependencies_test["junit"]
 }
 
-//apply plugin: 'maven-publish'
-//group = 'com.github.sovegetables'
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                groupId = 'com.github.sovegetables.dg'
-//                artifactId = 'okhttp-dns'
-//            }
-//        }
-//    }
-//}
+apply plugin: 'maven-publish'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'okhttp-dns'
+            }
+        }
+    }
+}
