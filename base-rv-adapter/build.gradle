@@ -39,3 +39,16 @@ dependencies {
     implementation rootProject.ext.dependencies_androidx["core-ktx"]
     implementation rootProject.ext.dependencies_androidx["recyclerview"]
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'base-rv-adapter'
+            }
+        }
+    }
+}

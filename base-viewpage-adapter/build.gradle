@@ -37,3 +37,16 @@ dependencies {
     implementation rootProject.ext.dependencies_common["kotlin"]
     implementation rootProject.ext.dependencies_androidx["core-ktx"]
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'base-viewpage-adapter'
+            }
+        }
+    }
+}

@@ -26,3 +26,16 @@ android {
     }
 
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'verticalviewpager'
+            }
+        }
+    }
+}

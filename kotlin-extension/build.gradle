@@ -40,3 +40,16 @@ dependencies {
     implementation rootProject.ext.dependencies_androidx["core-ktx"]
     implementation project(':utils')
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'kotlin-extension'
+            }
+        }
+    }
+}

@@ -26,3 +26,16 @@ android {
 dependencies {
 	implementation rootProject.ext.dependencies_androidx["appcompat"]
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+	publishing {
+		publications {
+			release(MavenPublication) {
+				groupId = 'com.github.sovegetables.dg'
+				artifactId = 'circleprogressview'
+			}
+		}
+	}
+}

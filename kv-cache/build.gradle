@@ -43,3 +43,16 @@ dependencies {
     implementation rootProject.ext.dependencies_sovegetables["gsonhelper"]
     implementation project(':logger')
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'kv-cache'
+            }
+        }
+    }
+}

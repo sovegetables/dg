@@ -42,3 +42,16 @@ dependencies {
     implementation rootProject.ext.dependencies_androidx["core-ktx"]
     implementation rootProject.ext.dependencies_androidx["constraintlayout"]
 }
+
+apply plugin: 'maven-publish'
+group = 'com.github.sovegetables'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.sovegetables.dg'
+                artifactId = 'floatingwindow'
+            }
+        }
+    }
+}
