@@ -1,10 +1,9 @@
 
 buildscript {
-    ext.kotlin_version = '1.4.20'
+    ext.kotlin_version = '1.5.20'
     repositories {
-        jcenter()
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "https://jitpack.io" }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         maven {
             url 'https://maven.aliyun.com/repository/jcenter'
         }
@@ -24,14 +23,16 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
         maven {
             url 'https://maven.aliyun.com/repository/jcenter'
         }
@@ -43,9 +44,6 @@ allprojects {
         }
         maven {
             url 'https://dl.bintray.com/umsdk/release'
-        }
-        maven {
-            url "https://jitpack.io"
         }
         maven {
             url 'https://developer.huawei.com/repo/'
