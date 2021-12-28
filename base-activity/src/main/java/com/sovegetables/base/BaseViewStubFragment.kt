@@ -76,10 +76,21 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
             }else{
                 val viewGroup = view as ViewGroup
                 viewGroup.removeAllViews()
-                _binding = bindingInflater.invoke(layoutInflater)
+
+                val inflatedView: View
+                if(bindingInflater != null){
+                    _binding = bindingInflater.invoke(layoutInflater)
+                    inflatedView = _binding!!.root
+                }else{
+                    inflatedView = LayoutInflater.from(requireContext()).inflate(
+                        layoutResources,
+                        viewGroup,
+                        false
+                    )
+                }
                 hasInflated = true
-                viewGroup.addView(_binding!!.root)
-                onCreateViewAfterViewStubInflated(_binding!!.root, mSavedInstanceState)
+                viewGroup.addView(inflatedView)
+                onCreateViewAfterViewStubInflated(inflatedView, mSavedInstanceState)
                 afterViewStubInflated(view)
             }
         }
