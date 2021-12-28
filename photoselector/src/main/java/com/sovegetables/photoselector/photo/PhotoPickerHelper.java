@@ -128,6 +128,7 @@ public class PhotoPickerHelper {
      */
     private static BoxingConfig getVideoConfig() {
         BoxingConfig config = new BoxingConfig(BoxingConfig.Mode.VIDEO);
+        config.withMaxCount(1);
         config.withMediaCheckedRes(R.drawable.ic_circle_choose_photo_select)
                 .withMediaUncheckedRes(R.drawable.ic_circle_choose_photo_normal);
         return config;

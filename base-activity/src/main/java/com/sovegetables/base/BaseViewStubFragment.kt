@@ -8,13 +8,21 @@ import android.view.ViewGroup
 import android.view.ViewStub
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
+import androidx.viewbinding.ViewBinding
 import com.sovegetables.topnavbar.TopBar
 
-abstract class BaseViewStubFragment : com.sovegetables.base.BaseFragment() {
+abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.BaseFragment() {
+
     private var mSavedInstanceState: Bundle? = null
     private var hasInflated = false
     private var mViewStub: ViewStub? = null
     private var layoutResources: Int = -1
+    private var _binding: ViewBinding? = null
+    abstract val bindingInflater: (LayoutInflater) -> VB
+
+    @Suppress("UNCHECKED_CAST")
+    protected val binding: VB
+        get() = _binding as VB
 
     companion object{
         private const val KEY_HAS_INFLATED = "KEY.BaseViewStubFragment.INFLATED"
@@ -68,14 +76,10 @@ abstract class BaseViewStubFragment : com.sovegetables.base.BaseFragment() {
             }else{
                 val viewGroup = view as ViewGroup
                 viewGroup.removeAllViews()
-                val inflatedView = LayoutInflater.from(requireContext()).inflate(
-                    layoutResources,
-                    viewGroup,
-                    false
-                )
+                _binding = bindingInflater.invoke(layoutInflater)
                 hasInflated = true
-                viewGroup.addView(inflatedView)
-                onCreateViewAfterViewStubInflated(inflatedView, mSavedInstanceState)
+                viewGroup.addView(_binding!!.root)
+                onCreateViewAfterViewStubInflated(_binding!!.root, mSavedInstanceState)
                 afterViewStubInflated(view)
             }
         }
