@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewStub
+import android.widget.FrameLayout
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
@@ -15,7 +16,7 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
 
     private var mSavedInstanceState: Bundle? = null
     private var hasInflated = false
-//    private var mViewStub: ViewStub? = null
+    private lateinit var container: FrameLayout
     private var layoutResources: Int = -1
     private var _binding: ViewBinding? = null
     abstract val bindingInflater: (LayoutInflater, ViewGroup, Boolean) -> VB
@@ -40,13 +41,11 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
 
     @CallSuper
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        container = view.findViewById(R.id.fragment_sub_container)
         super.onViewCreated(view, savedInstanceState)
         if(!hasInflated){
             showLoading()
-//            mViewStub = view.findViewById(R.id.fragmentViewStub) as ViewStub?
-//            Log.d(TAG, "onViewCreated -- : $mViewStub")
             layoutResources = getViewStubLayoutResource()
-//            mViewStub?.layoutResource = layoutResources
         }
         mSavedInstanceState = savedInstanceState
         if(!enableLazyLoading()){
@@ -65,40 +64,24 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
     }
 
     private fun loadRealLayout() {
-        Log.d(TAG, "hasInflated: $hasInflated")
-//        Log.d(TAG, "onViewCreated: $mViewStub")
         if(!hasInflated){
-//            if (mViewStub != null && mViewStub!!.layoutResource > 0) {
-//                val inflatedView: View
-//                if(bindingInflater != null){
-//                    _binding = bindingInflater.invoke(layoutInflater)
-//                    inflatedView = _binding!!.root
-//                }else{
-//                    inflatedView = mViewStub!!.inflate()
-//                }
-//                hasInflated = true
-//                onCreateViewAfterViewStubInflated(inflatedView, mSavedInstanceState)
-//                afterViewStubInflated(view)
-//            }else{
-                val viewGroup = view as ViewGroup
-                viewGroup.removeAllViews()
-
-                val inflatedView: View
-                if(bindingInflater != null){
-                    _binding = bindingInflater.invoke(layoutInflater, viewGroup, false)
-                    inflatedView = _binding!!.root
-                }else{
-                    inflatedView = LayoutInflater.from(requireContext()).inflate(
-                        layoutResources,
-                        viewGroup,
-                        false
-                    )
-                }
-                hasInflated = true
-                viewGroup.addView(inflatedView)
-                onCreateViewAfterViewStubInflated(inflatedView, mSavedInstanceState)
-                afterViewStubInflated(view)
-//            }
+            val viewGroup = container as ViewGroup
+            viewGroup.removeAllViews()
+            val inflatedView: View
+            if(bindingInflater != null){
+                _binding = bindingInflater.invoke(layoutInflater, viewGroup, false)
+                inflatedView = _binding!!.root
+            }else{
+                inflatedView = LayoutInflater.from(requireContext()).inflate(
+                    layoutResources,
+                    viewGroup,
+                    false
+                )
+            }
+            hasInflated = true
+            viewGroup.addView(inflatedView)
+            onCreateViewAfterViewStubInflated(inflatedView, mSavedInstanceState)
+            afterViewStubInflated(view)
         }
 
     }
