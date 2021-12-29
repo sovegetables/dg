@@ -18,7 +18,7 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
 //    private var mViewStub: ViewStub? = null
     private var layoutResources: Int = -1
     private var _binding: ViewBinding? = null
-    abstract val bindingInflater: (LayoutInflater) -> VB
+    abstract val bindingInflater: (LayoutInflater, ViewGroup, Boolean) -> VB
 
     @Suppress("UNCHECKED_CAST")
     protected val binding: VB
@@ -85,7 +85,7 @@ abstract class BaseViewStubFragment<VB: ViewBinding> : com.sovegetables.base.Bas
 
                 val inflatedView: View
                 if(bindingInflater != null){
-                    _binding = bindingInflater.invoke(layoutInflater)
+                    _binding = bindingInflater.invoke(layoutInflater, viewGroup, false)
                     inflatedView = _binding!!.root
                 }else{
                     inflatedView = LayoutInflater.from(requireContext()).inflate(
