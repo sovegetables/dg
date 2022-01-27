@@ -23,7 +23,12 @@ public class WebActivity extends BaseActivity {
     private WebView mWebView;
     private static final String UTF_8 = "UTF-8";
     private static final String KEY_URL = "key.url.WebActivity";
+    private static final String KEY_ENABLE_ZOOM = "key.zoom.WebActivity";
     private static final String KEY_TITLE = "key.title.WebActivity";
+
+    private String mUrl = "";
+    private String mTitle = "";
+    private boolean mZoomEnable = false;
 
     public static void open(Context context, String url) {
         Intent intent = new Intent(context, WebActivity.class);
@@ -37,6 +42,14 @@ public class WebActivity extends BaseActivity {
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(KEY_URL, url);
         intent.putExtra(KEY_TITLE, title);
+        context.startActivity(intent);
+    }
+
+    public static void openWithXZoom(Context context, String url, boolean zoom) {
+        Intent intent = new Intent(context, WebActivity.class);
+        intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(KEY_URL, url);
+        intent.putExtra(KEY_ENABLE_ZOOM, zoom);
         context.startActivity(intent);
     }
 
@@ -55,11 +68,9 @@ public class WebActivity extends BaseActivity {
         if(outState != null){
             outState.putString(KEY_URL, mUrl);
             outState.putString(KEY_TITLE, mTitle);
+            outState.putBoolean(KEY_ENABLE_ZOOM, mZoomEnable);
         }
     }
-
-    private String mUrl = "";
-    private String mTitle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +79,11 @@ public class WebActivity extends BaseActivity {
         if(savedInstanceState == null){
             mTitle = getIntent().getStringExtra(KEY_TITLE);
             mUrl = getIntent().getStringExtra(KEY_URL);
+            mZoomEnable = getIntent().getBooleanExtra(KEY_ENABLE_ZOOM, false);
         }else {
             mTitle = savedInstanceState.getString(KEY_TITLE);
             mUrl = savedInstanceState.getString(KEY_URL);
+            mZoomEnable = getIntent().getBooleanExtra(KEY_ENABLE_ZOOM, false);
         }
         String title = mTitle;
         String url = mUrl;
@@ -87,9 +100,9 @@ public class WebActivity extends BaseActivity {
         webSettings.setAllowContentAccess(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
-        webSettings.setSupportZoom(false);
+        webSettings.setSupportZoom(mZoomEnable);
         webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(false);
+        webSettings.setDisplayZoomControls(mZoomEnable);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDatabaseEnabled(true);
         webSettings.setDefaultTextEncodingName(UTF_8);
