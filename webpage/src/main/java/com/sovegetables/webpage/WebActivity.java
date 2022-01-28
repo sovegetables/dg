@@ -45,7 +45,7 @@ public class WebActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
-    public static void openWithXZoom(Context context, String url, boolean zoom) {
+    public static void openWithZoom(Context context, String url, boolean zoom) {
         Intent intent = new Intent(context, WebActivity.class);
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(KEY_URL, url);
