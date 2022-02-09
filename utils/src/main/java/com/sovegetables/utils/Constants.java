@@ -48,6 +48,6 @@ public class Constants {
         public static final String KEY_CERTINFO="certInfo";
 
         public static final String KEY_CERT_SWITCH="certSwitch";
-
+        public static final String FIX_PROJECT_ID = "key.fix.project.id";
     }
 }

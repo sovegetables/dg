@@ -110,6 +110,12 @@ public class BaseActivity extends com.sovegetables.BaseActivity {
         activityRootViewGroup = findViewById(R.id.rl_activity_container);
     }
 
+    @Override
+    public void setContentView(@Nullable View view) {
+        super.setContentView(view);
+        activityRootViewGroup = findViewById(R.id.rl_activity_container);
+    }
+
     @SuppressLint("MissingSuperCall")
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
